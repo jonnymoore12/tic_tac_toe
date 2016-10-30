@@ -8,8 +8,7 @@ class Player
   end
 
   def make_your_move
-    puts "Where would you like to move next"
-    position = gets.chomp
-    # check that the position is legal
+    puts "Where would you like to move (1-9)?"
+    position = gets.chomp.to_i
   end
 end

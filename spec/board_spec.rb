@@ -7,6 +7,16 @@ describe Board do
     expect(board.positions[1]).to eq ''
   end
 
+  describe '#board_instructions' do
+    it 'displays a preview of the board, labelling the positions' do
+      expect(board.board_instructions).to eq " 1 | 2 | 3 \n" +
+                                            "- - - - -\n" +
+                                            " 4 | 5 | 6 \n" +
+                                            "- - - - -\n" +
+                                            " 7 | 8 | 9 "
+    end
+  end
+
   describe '#show_board' do
     it 'displays the board' do
       expect(board.show_board).to eq "  |  |  \n  |  |  \n  |  |  "
