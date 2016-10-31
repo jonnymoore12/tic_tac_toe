@@ -3,8 +3,8 @@ class Board
   attr_reader :positions
 
   def initialize
-    @positions = { 1 => '', 2 => '', 3 => '', 4 => '', 5 => '',
-                  6 => '', 7 => '', 8 => '', 9 => ''}
+    @positions = { 1 => ' ', 2 => ' ', 3 => ' ', 4 => ' ', 5 => ' ',
+                  6 => ' ', 7 => ' ', 8 => ' ', 9 => ' '}
   end
 
   def board_instructions
@@ -17,9 +17,9 @@ class Board
 
   def show_board
     " #{@positions[1]} | #{@positions[2]} | #{@positions[3]} \n" +
-    "- - - - -\n" +
+    "- - - - - -\n" +
     " #{@positions[4]} | #{@positions[5]} | #{@positions[6]} \n" +
-    "- - - - -\n" +
+    "- - - - - -\n" +
     " #{@positions[7]} | #{@positions[8]} | #{@positions[9]} "
   end
 

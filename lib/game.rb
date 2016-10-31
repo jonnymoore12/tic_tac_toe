@@ -1,23 +1,24 @@
 class Game
 
-  attr_reader :board, :current_player, :x_player, :o_player
+  attr_reader :board, :current_player, :x_player, :o_player, :turn_count
 
   def initialize(board, x_player, o_player)
     @board = board
     @current_player = x_player
     @x_player = x_player
     @o_player = o_player
+    @turn_count = 0
   end
 
   def place_your_mark
     position = @current_player.make_your_move
-    # Can this be refactored? How about a while loop
     if position_legal?(position)
       board.place_mark(position, @current_player.type)
     else
       puts "I'm sorry, but you cannot move there. Please try again."
       place_your_mark
     end
+    @turn_count += 1
   end
 
   def swap_turns
@@ -33,14 +34,17 @@ class Game
     false
   end
 
-private
+  def drawn_game?
+    @turn_count == 9 && !three_in_a_row?
+  end
+
+# private
 
   def position_legal?(position)
-    @board.positions[position] == ''
+    @board.positions[position] == ' '
   end
 
   def three_in_a_row?
-    # come back and refactor this bad boy
     @board.positions[1] == 'X' && @board.positions[2] == 'X' && @board.positions[3] == 'X' ||
     @board.positions[1] == 'O' && @board.positions[2] == 'O' && @board.positions[3] == 'O' ||
     @board.positions[4] == 'X' && @board.positions[5] == 'X' && @board.positions[6] == 'X' ||

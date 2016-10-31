@@ -4,7 +4,6 @@ require './lib/player'
 
 puts "Welcome to tic tac toe!"
 puts "A multiplayer, command-line game"
-sleep 1
 puts "Readying board..."
 sleep 1
 x_player = Player.new(:x)
@@ -13,13 +12,12 @@ game = Game.new(Board.new, x_player, o_player)
 
 puts ""
 puts game.board.board_instructions
-sleep 1
 puts ""
-while !game.game_over?
+while !game.game_over? && !game.drawn_game?
   if game.current_player == x_player
     puts "X team, it's your turn!"
   else
-    puts "Y team, it's your turn!"
+    puts "O team, it's your turn!"
   end
   game.place_your_mark
   puts ""
@@ -30,3 +28,8 @@ while !game.game_over?
 end
 
 puts "The game ends!"
+if game.drawn_game?
+  puts "You are too evenly matched. The game was a draw!"
+else
+  game.current_player == o_player ? (puts "The X team wins!") : (puts "The Y team wins!")
+end

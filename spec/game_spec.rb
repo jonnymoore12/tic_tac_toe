@@ -12,13 +12,9 @@ describe Game do
   it 'x_player begins the game first' do
     expect(game.current_player).to eq x_player
   end
-
-  # describe '#place_your_mark' do
-  #   it 'prompts a player to move' do
-  #     game.place_your_mark
-  #     expect(game.current_player).to have_received(:make_your_move)
-  #   end
-  # end
+  it 'is initialized with the turn_count at 0' do
+    expect(game.turn_count).to eq 0
+  end
 
   describe '#swap_turns' do
     it "changes to o_player if currently x_player's turn" do
@@ -39,7 +35,7 @@ describe Game do
         allow(game).to receive(:three_in_a_row?).and_return true
       end
 
-      it "returns true if a move finishes the game" do
+      it 'returns true if a move finishes the game' do
         expect(game.game_over?).to be true
       end
     end
@@ -47,6 +43,25 @@ describe Game do
     context 'no one has won the game yet' do
       it 'returns false' do
         expect(game.game_over?).to be false
+      end
+    end
+  end
+
+  describe '#drawn_game' do
+    # context 'game is a draw' do
+    #   before do
+    #     allow(game).to receive(:three_in_a_row?).and_return false
+    #     allow(game).to receive(:turn_count).and_return 9
+    #   end
+    #
+    #   it 'returns true' do
+    #     expect(game.drawn_game?).to be true
+    #   end
+    # end
+
+    context 'game is not a draw' do
+      it 'returns false' do
+        expect(game.drawn_game?).to be false
       end
     end
   end

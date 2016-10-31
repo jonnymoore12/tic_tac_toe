@@ -1,6 +1,5 @@
 class Player
-  # Enter their name or anything else rolled up in the init method??
-
+  
   attr_reader :type
 
   def initialize(type)
