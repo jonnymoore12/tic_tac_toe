@@ -11,7 +11,7 @@ class Game
   end
 
   def place_your_mark
-    position = @current_player.make_your_move
+    position = @current_player.make_your_move(@board)
     if position_legal?(position)
       board.place_mark(position, @current_player.type)
     else
