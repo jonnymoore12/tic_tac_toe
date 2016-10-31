@@ -1,10 +1,6 @@
-class ComputerPlayer
+require_relative 'player'
 
-  attr_reader :type
-
-  def initialize(type)
-    @type = type
-  end
+class ComputerPlayer < Player
 
   def make_your_move(board)
     puts "The computer is thinking..."

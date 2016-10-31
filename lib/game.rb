@@ -38,7 +38,7 @@ class Game
     @turn_count == 9 && !three_in_a_row?
   end
 
-# private
+private
 
   def position_legal?(position)
     @board.positions[position] == ' '
