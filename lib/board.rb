@@ -16,15 +16,15 @@ class Board
   end
 
   def show_board
-    " #{@positions[1]} | #{@positions[2]} | #{@positions[3]} \n" +
+    " #{positions[1]} | #{positions[2]} | #{positions[3]} \n" +
     "- - - - - -\n" +
-    " #{@positions[4]} | #{@positions[5]} | #{@positions[6]} \n" +
+    " #{positions[4]} | #{positions[5]} | #{positions[6]} \n" +
     "- - - - - -\n" +
-    " #{@positions[7]} | #{@positions[8]} | #{@positions[9]} "
+    " #{positions[7]} | #{positions[8]} | #{positions[9]} "
   end
 
   def place_mark(position, type)
-    @positions[position] = type == :x ? 'X' : 'O'
+    positions[position] = type == :x ? 'X' : 'O'
   end
 
 end

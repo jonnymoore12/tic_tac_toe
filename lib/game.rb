@@ -11,9 +11,9 @@ class Game
   end
 
   def place_your_mark
-    position = @current_player.make_your_move(@board)
+    position = current_player.make_your_move(board)
     if position_legal?(position)
-      board.place_mark(position, @current_player.type)
+      board.place_mark(position, current_player.type)
     else
       puts "I'm sorry, but you cannot move there. Please try again."
       place_your_mark
@@ -35,7 +35,7 @@ class Game
   end
 
   def drawn_game?
-    @turn_count == 9 && !three_in_a_row?
+    turn_count == 9 && !three_in_a_row?
   end
 
 private
@@ -45,21 +45,21 @@ private
   end
 
   def three_in_a_row?
-    @board.positions[1] == 'X' && @board.positions[2] == 'X' && @board.positions[3] == 'X' ||
-    @board.positions[1] == 'O' && @board.positions[2] == 'O' && @board.positions[3] == 'O' ||
-    @board.positions[4] == 'X' && @board.positions[5] == 'X' && @board.positions[6] == 'X' ||
-    @board.positions[4] == 'O' && @board.positions[5] == 'O' && @board.positions[6] == 'O' ||
-    @board.positions[7] == 'X' && @board.positions[8] == 'X' && @board.positions[9] == 'X' ||
-    @board.positions[7] == 'O' && @board.positions[8] == 'O' && @board.positions[9] == 'O' ||
-    @board.positions[1] == 'X' && @board.positions[4] == 'X' && @board.positions[7] == 'X' ||
-    @board.positions[1] == 'O' && @board.positions[4] == 'O' && @board.positions[7] == 'O' ||
-    @board.positions[2] == 'X' && @board.positions[5] == 'X' && @board.positions[8] == 'X' ||
-    @board.positions[2] == 'O' && @board.positions[5] == 'O' && @board.positions[8] == 'O' ||
-    @board.positions[3] == 'X' && @board.positions[6] == 'X' && @board.positions[9] == 'X' ||
-    @board.positions[3] == 'O' && @board.positions[6] == 'O' && @board.positions[9] == 'O' ||
-    @board.positions[1] == 'X' && @board.positions[5] == 'X' && @board.positions[9] == 'X' ||
-    @board.positions[1] == 'O' && @board.positions[5] == 'O' && @board.positions[9] == 'O' ||
-    @board.positions[3] == 'X' && @board.positions[5] == 'X' && @board.positions[7] == 'X' ||
-    @board.positions[3] == 'O' && @board.positions[5] == 'O' && @board.positions[7] == 'O'
+    board.positions[1] == 'X' && board.positions[2] == 'X' && board.positions[3] == 'X' ||
+    board.positions[1] == 'O' && board.positions[2] == 'O' && board.positions[3] == 'O' ||
+    board.positions[4] == 'X' && board.positions[5] == 'X' && board.positions[6] == 'X' ||
+    board.positions[4] == 'O' && board.positions[5] == 'O' && board.positions[6] == 'O' ||
+    board.positions[7] == 'X' && board.positions[8] == 'X' && board.positions[9] == 'X' ||
+    board.positions[7] == 'O' && board.positions[8] == 'O' && board.positions[9] == 'O' ||
+    board.positions[1] == 'X' && board.positions[4] == 'X' && board.positions[7] == 'X' ||
+    board.positions[1] == 'O' && board.positions[4] == 'O' && board.positions[7] == 'O' ||
+    board.positions[2] == 'X' && board.positions[5] == 'X' && board.positions[8] == 'X' ||
+    board.positions[2] == 'O' && board.positions[5] == 'O' && board.positions[8] == 'O' ||
+    board.positions[3] == 'X' && board.positions[6] == 'X' && board.positions[9] == 'X' ||
+    board.positions[3] == 'O' && board.positions[6] == 'O' && board.positions[9] == 'O' ||
+    board.positions[1] == 'X' && board.positions[5] == 'X' && board.positions[9] == 'X' ||
+    board.positions[1] == 'O' && board.positions[5] == 'O' && board.positions[9] == 'O' ||
+    board.positions[3] == 'X' && board.positions[5] == 'X' && board.positions[7] == 'X' ||
+    board.positions[3] == 'O' && board.positions[5] == 'O' && board.positions[7] == 'O'
   end
 end
